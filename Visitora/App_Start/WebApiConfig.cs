@@ -13,9 +13,9 @@ namespace Visitora
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            //var jsonFormatter = new JsonMediaTypeFormatter();
+            var jsonFormatter = new JsonMediaTypeFormatter();
             ////optional: set serializer settings here
-            //config.Services.Replace(typeof(IContentNegotiator), new JsonContentNegotiator(jsonFormatter));
+            config.Services.Replace(typeof(IContentNegotiator), new JsonContentNegotiator(jsonFormatter));
             // Web API routes
             config.MapHttpAttributeRoutes();
             //config.Formatters.Add(jsonFormatter);
