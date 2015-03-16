@@ -23,7 +23,7 @@ namespace Visitora.Controllers
             return db.Visits;
         }
 
-        [Route("api/users/{user}/visits")]
+        [Route("v1/users/{user}/visits")]
         public IQueryable<VisitDTO> GetUserVisits(string user)
         {
             var visits = from visit in db.Visits
@@ -38,7 +38,7 @@ namespace Visitora.Controllers
             return visits.OrderByDescending(v=>v.CityName).AsQueryable();
         }
 
-        [Route("api/users/{user}/visits")]
+        [Route("v1/users/{user}/visits")]
         public IHttpActionResult PostVisit(string user, CityDTO city)
         {
 

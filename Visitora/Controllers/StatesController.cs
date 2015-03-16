@@ -18,7 +18,7 @@ namespace Visitora.Controllers
     {
         private Entities db = new Entities();
 
-        [Route("api/states/{state}/cities")]
+        [Route("v1/states/{state}/cities")]
         public IQueryable<CityDTO> GetStateCities(string state)
         {
             var cities = from city in db.Cities
@@ -32,7 +32,7 @@ namespace Visitora.Controllers
             return cities.OrderBy(c => c.Name).AsQueryable();
         }
 
-        [Route("api/states/{state}/cities/{city}")]
+        [Route("v1/states/{state}/cities/{city}")]
         public IQueryable<CityDTO> GetCitiesInRadius(string state, string city, [FromUri] double radius)
         {
             City initialCity = db.Cities.Single(c=>c.State.Name == state && c.name == city);
